@@ -2,9 +2,9 @@ resource "aws_route_table" "private" {
   vpc_id = aws_vpc.alon-vpc-eks.id
 
   route {
-      cidr_block                 = "0.0.0.0/0"
-      nat_gateway_id             = aws_nat_gateway.nat.id
-    }
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat.id
+  }
   tags = {
     Name = "private"
   }
@@ -14,9 +14,9 @@ resource "aws_route_table" "public" {
   vpc_id = aws_vpc.alon-vpc-eks.id
 
   route {
-      cidr_block                 = "0.0.0.0/0"
-      gateway_id                 = aws_internet_gateway.alon-new-igw.id
-    }
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.alon-new-igw.id
+  }
 
   tags = {
     Name = "public"
