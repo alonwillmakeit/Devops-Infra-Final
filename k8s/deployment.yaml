@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: counter-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: counter-service
+  template:
+    metadata:
+      labels:
+        app: counter-service
+    spec:
+      containers:
+      - name: counter-service
+        image: 476285196763.dkr.ecr.us-east-1.amazonaws.com/docker/repo:944eaa9ee9aa6d5295f2d63cd9cbdc1af7f3308f
+        ports:
+        - name: web
+          containerPort: 80
+        resources:
+          requests:
+            memory: 256Mi
+            cpu: 250m
+          limits:
+            memory: 256Mi
+            cpu: 250m
+      # tolerations:
+      # - key: team
+      #   operator: Equal
+      #   value: devops
+      #   effect: NoSchedule
