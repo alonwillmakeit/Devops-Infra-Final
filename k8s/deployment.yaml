@@ -26,8 +26,3 @@ spec:
           limits:
             memory: 256Mi
             cpu: 250m
-      # tolerations:
-      # - key: team
-      #   operator: Equal
-      #   value: devops
-      #   effect: NoSchedule
