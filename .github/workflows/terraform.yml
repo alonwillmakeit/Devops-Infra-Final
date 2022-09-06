@@ -33,9 +33,18 @@ jobs:
         run: terraform fmt -check
       
       - name: Terraform Apply
+        id: terraformApply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
       
       - name: Terraform destroy
         if: github.ref == 'refs/heads/destroy' && github.event_name == 'push'
         run: terraform destroy -auto-approve
+        
+      - name: Authenticate with EKS and deploy manifests to cluster
+        if: steps.terraformApply.outcome == 'success'
+        run: |
+          aws eks --region us-east-1 update-kubeconfig --name demo
+          kubectl apply -f k8s/deployment.yaml && kubectl apply -f k8s/service.yaml
+          kubectl get svc | awk '/counter-service/ {print $4}'
+      
