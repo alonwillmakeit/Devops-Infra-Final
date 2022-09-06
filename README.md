@@ -21,11 +21,11 @@
 
 1. Clone main repository
 ```
-$ git clone git@github.com:alonwillmakeit/Devops-Infra-Final.git && cd Devops-Infra-Final && echo "Generic commit to trigger CI" > genericfiletorunCI.txt
+git clone git@github.com:alonwillmakeit/Devops-Infra-Final.git && cd Devops-Infra-Final && echo "Generic commit to trigger CI" > genericfiletorunCI.txt
 ```
 2. Run 
 ```
-$ git add . && git commit -m "commit to trigger CI" && git push
+git add . && git commit -m "commit to trigger CI" && git push
 ```
 
 
@@ -38,15 +38,15 @@ $ git add . && git commit -m "commit to trigger CI" && git push
 
 1. Run
 ```
-$ aws eks --region us-east-1 update-kubeconfig --name demo
+aws eks --region us-east-1 update-kubeconfig --name demo
 ```
 2. Apply your manifests into the cluster
 ```
-$ kubectl apply -f k8s/deployment.yaml && kubectl apply -f k8s/service.yaml
+kubectl apply -f k8s/deployment.yaml && kubectl apply -f k8s/service.yaml
 ```
 3. Might need to wait 1-2 minutes of LB to fully registers and run
 ```
-$ kubectl get svc | awk '/counter-service/ {print $4}'
+kubectl get svc | awk '/counter-service/ {print $4}'
 ```
 If you still don't still a AWS URL, the LB still didn't finish proccessing, 
 when you do see the URL, u can access it and access our application!
