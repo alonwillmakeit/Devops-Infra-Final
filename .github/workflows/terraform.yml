@@ -45,6 +45,6 @@ jobs:
         if: steps.terraformApply.outcome == 'success'
         run: |
           aws eks --region us-east-1 update-kubeconfig --name demo
-          kubectl apply -f k8s/deployment.yaml && kubectl apply -f k8s/service.yaml
+          kubectl apply -f k8s/deployment.yaml && kubectl apply -f k8s/service.yaml && sleep 2m
           kubectl get svc | awk '/counter-service/ {print $4}'
       
