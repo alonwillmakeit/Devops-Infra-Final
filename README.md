@@ -50,7 +50,7 @@ when you do see the URL, u can access it and access our application!
 
 ## Results :
 
-Now we have created an EKS cluster with our apllication deployed on , that can be accessed throught the link received in step 3 in K8S application
+Now we have created an EKS cluster with our application deployed on , that can be accessed throught the link received in step 3 in K8S application
 
 
 
