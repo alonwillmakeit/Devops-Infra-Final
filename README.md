@@ -4,8 +4,6 @@
 ## This repository contains terraform code that provisions AWS EKS cluster with EKS managed node group and access to the internet (public) and a "classic" LB. Can be Optionally built automatically with github actions with a push command to branch "main". in addition, has a terraform destroy ability if a commit is pushed to branch "destroy" a pipeline condition will be triggered and run "terraform destroy" 
 
 
-***Work-in-progress: manifests (within the k8s directory) are currently being applied manually with the steps provided below***
-
 
 ### Prerequisites
 
@@ -13,8 +11,6 @@
 - Github repositroy access
 - Kubernetes with kubectl installed
 
-
-***In-order to apply the k8s manifests, you HAVE to wait untill the terraform files are fully done provisioning the resources and then run the commands below***
 
 
 ### Terraform Steps : 
